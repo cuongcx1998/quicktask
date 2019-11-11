@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,3 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/tasks', 'TaskController@index')->name('tasks');
+
+Route::post('/task', 'TaskController@store')->name('post.task');
+
+Route::delete('/task/{task}', 'TaskController@destroy')->name('delete.task');
